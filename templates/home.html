@@ -1,0 +1,186 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Tracker</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    nav h1 {
+        font-family: fantasy;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 64px;
+        color: #000000;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .container form input {
+        text-align: center;
+        margin: 1rem;
+        box-sizing: border-box;
+        width: 488px;
+        height: 45px;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 8px;
+
+    }
+
+    .container .left,
+    .container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container form button {
+        border: 1px solid #1731FA;
+        margin: 1rem;
+        color: white;
+        width: 150px;
+        height: 45px;
+        background: #1731FA;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    span.red {
+        color: red;
+    }
+
+    .container .left h2 {
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 44px;
+
+        color: #000000;
+    }
+
+    .container .subheading {
+        margin: 1rem auto;
+        font-family: 'Inter';
+        width: 80%;
+        text-align: center;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+
+        color: #000000;
+    }
+
+    .container .left p.info {
+        margin: 1rem 0;
+        width: 565px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 27px;
+
+        color: #000000;
+
+
+    }
+    .logo img{
+        object-fit: contain;
+        margin: 0 1rem;
+    }
+</style>
+
+
+<style>
+    .loading_container{
+        border-radius: 10px;
+        background-color: rgb(172, 172, 172);
+        padding: 2rem;
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        z-index: 9;
+        height: 20rem;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="">
+        </div>
+        <div class="heading">
+            <h1>The Data Guy</h1>
+        </div>
+    </nav>
+        <div class="loading_container" id="loading">
+            <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+
+              <h1>Getting Data, Wait for a while...</h1>
+        </div>
+    <div class="container" id="container">
+        <div class="left">
+            <h2>Free Competitor Analysis Tool</h2>
+            <p class="subheading">Elevate Your Amazon Strategy with Free
+                Competitor Analysis!</p>
+            <p class="info">Are you ready to dominate the Amazon marketplace
+                and skyrocket your sales? Look no further! Our cutting
+                -edge competitor analysis service provides you with
+                the invaluable insights you need to stay ahead of the
+                curve.</p>
+            <form action="{% url 'getData' %}" method="POST" autocomplete="off"> {% csrf_token %}
+                <h1>Please enter the data to start analysis</h1>
+                <input type="text" placeholder="Enter your brand name" name="brandname" required>
+                <input type="text" placeholder="Enter your Competitor brand name" name="competitor" required>
+                <small><span class="red">*</span>you can enter multiple competitor separated by comma</small>
+                <input type="text" placeholder="Enter the keyword you want to track" name="keyword" required>
+                <!-- <small><span class="red">*</span>you can enter multiple keyword separated by comma</small> -->
+                <button id="formSubmit">Submit</button>
+            </form>
+        </div>
+        <div class="right">
+            <img src="{% static 'banner.png' %}" alt="">
+        </div>
+    </div>
+</body>
+
+<script>
+    document.getElementById("formSubmit").addEventListener('click',()=>{
+        document.getElementById('loading').style.display = "flex";
+        document.getElementById('container').style.display = "none";
+    })
+</script>
+
+</html>

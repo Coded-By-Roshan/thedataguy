@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    nav h1 {
+        font-family: fantasy;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 64px;
+        color: #000000;
+    }
+    .logo img{
+        object-fit: contain;
+        margin: 0 1rem;
+    }
+    .result-container div{
+        flex-direction: column;
+    display: flex;
+    margin: 0.5rem;
+    border-bottom: 1px solid gray;
+    }
+    .result-container div p:nth-child(1){
+    font-weight:700;
+    font-size:20px;
+}
+
+</style>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="">
+        </div>
+        <div class="heading">
+            <h1>The Data Guy</h1>
+        </div>
+    </nav>
+
+    <div class="result-container">
+
+        <div class="best_seller">
+            <p>Is Best Seller ?</p>
+            <p>{{bestSeller}}</p>
+        </div>
+
+        <div class="sponsers">
+            <p>List of Sponsers on page: </p>
+            <p>{{sponsers}}</p>
+        </div>
+
+        <div class="position">
+            <p>Position of your brand in comparison to your competitor: </p>
+            <p>{{positions}}</p>
+        </div>
+
+        <div class="position">
+            <p>Total result for the keyword </p>
+            <p>{{occurance}}</p>
+        </div>
+
+        <div class="position">
+            <p>No. of reviews each competitor brands is having</p>
+            <p>{{Reviews}}</p>
+        </div>
+
+        <div class="position">
+            <p>No. of reviews your brand is having</p>
+            <p>{{Reviews}}</p>
+        </div>
+
+        <div class="position">
+            <p>How many times competitor brand product is coming on the 1st page and how many times your products are coming on 1st page</p>
+            <p>{{competitorOccurance}}</p>
+        </div>
+
+        <div class="position">
+            <p>Pricing of competitor product</p>
+            <p>{{prices}}</p>
+        </div>
+        <div class="position">
+            <p>How many times bought in a month for each competitor product</p>
+            <p>{{totalBought}}</p>
+        </div>
+     
+        <div class="position">
+            <p>How many times searched keyword comes in your Product title and About this item section</p>
+            <p>{{userBrandOccur}}</p>
+        </div>
+        <div class="position">
+            <p>Highly rated by customers for</p>
+            <p>{{ratedFor}}</p>
+        </div>
+        <div class="position">
+            <p>Rating of Compared product</p>
+            <p>{{prod_ratings}}</p>
+        </div>
+        <div class="position">
+            <p>Total rating of Compared product</p>
+            <p>{{rating_count}}</p>
+        </div>
+       
+       
+
+    </div>
+</body>
+</html>
