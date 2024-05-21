@@ -14,7 +14,7 @@ def iniatilize_selenium(search_keyword):
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--user-agent=roshannn')
-    chrome_options.add_argument(f'--chromedriver=/home/ubuntu/thedataguy/chrome-linux64/chrome')
+  
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.amazon.in/")
     time.sleep(5)
