@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from selenium import webdriver
 import time 
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -11,6 +12,8 @@ def iniatilize_selenium(search_keyword):
     search_keyword = search_keyword
     global search_products,single_products
     chrome_options = Options()
+    webdriver_path = '/temp/chromedriver'
+    service = Service(webdriver_path)
     # chrome_options.add_argument('--headless')
     # chrome_options.add_argument('--disable-gpu')
     # chrome_options.add_argument('--user-agent=roshannn')
