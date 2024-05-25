@@ -11,9 +11,9 @@ def iniatilize_selenium(search_keyword):
     search_keyword = search_keyword
     global search_products,single_products
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--user-agent=roshannn')
+    # chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument('--user-agent=roshannn')
   
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.amazon.in/")
