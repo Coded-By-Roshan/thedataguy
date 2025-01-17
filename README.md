@@ -1,4 +1,4 @@
-Install Python
+Install Python\n
 Open terminal and enter "pip install selenium"
 Download the code and open project in any code editor
 open terminal and enter "python manage.py runserver"
